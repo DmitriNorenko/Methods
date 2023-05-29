@@ -25,15 +25,7 @@ namespace Methods
             //    Console.WriteLine("Ваши любимые блюда: " + dishes);
             //}
             ///////////////////////////
-            //string[] favcolors = new string[3];
-            //for (int i = 0; i < favcolors.Length; i++)
-            //{
-            //    favcolors[i] = ShowColor();
-            //}
-            //foreach (string favcolor in favcolors)
-            //{
-            //    Console.WriteLine(favcolor);
-            //}
+            
             ////////////////////////////////
             //(string name, int age) anketa;
 
@@ -43,11 +35,18 @@ namespace Methods
             //anketa.age = Convert.ToInt32(Console.ReadLine());
             //Console.WriteLine("Ваше имя: {0}", anketa.name);
             //Console.WriteLine("Ваш возраст: {0}", anketa.age);
-            //ShowColor(anketa.name, anketa.age);
             //Console.ReadKey();
             //int[] array = GetArrayFromConsole();
-
-            foreach (int num in SortArray(GetArrayFromConsole()))
+            //string[] favcolors = new string[3];
+            //for (int i = 0; i < favcolors.Length; i++)
+            //{
+            //    favcolors[i] = ShowColor(anketa.name, anketa.age);
+            //}
+            //foreach (string favcolor in favcolors)
+            //{
+            //    Console.WriteLine(favcolor);
+            //}
+            foreach (int num in SortArray(GetArrayFromConsole(10)))
             {
                 Console.Write(num + " ");
             }
@@ -88,9 +87,9 @@ namespace Methods
             }
             return color;
         }
-        static int[] GetArrayFromConsole()
+        static int[] GetArrayFromConsole(int num = 5)
         {
-            var result = new int[5];
+            var result = new int[num];
             for (int i = 0; i < result.Length; i++)
             {
                 Console.WriteLine("Введите элемент массива номер {0}: ", i + 1);
