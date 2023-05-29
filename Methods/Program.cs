@@ -25,7 +25,7 @@ namespace Methods
             //    Console.WriteLine("Ваши любимые блюда: " + dishes);
             //}
             ///////////////////////////
-            
+
             ////////////////////////////////
             //(string name, int age) anketa;
 
@@ -46,11 +46,8 @@ namespace Methods
             //{
             //    Console.WriteLine(favcolor);
             //}
-            foreach (int num in SortArray(GetArrayFromConsole(10)))
-            {
-                Console.Write(num + " ");
-            }
-
+            int[] sortedarray = GetArrayFromConsole(10);
+            ShowArray(sortedarray,true);
             Console.ReadKey();
         }
         static string ShowColor(string Name, int age)
@@ -113,6 +110,18 @@ namespace Methods
                 }
             }
             return Result;
+        }
+        static int[] ShowArray(int[] array, bool isSort = false)
+        {
+            if (isSort == true)
+            {
+                SortArray(array);
+            }
+                foreach (int num in array)
+                {
+                    Console.Write(num + " ");
+                }
+            return array;
         }
     }
 }
