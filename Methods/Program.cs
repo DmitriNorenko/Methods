@@ -34,27 +34,29 @@ namespace Methods
             //{
             //    Console.WriteLine(favcolor);
             //}
-            (string name, int age) anketa;
+            ////////////////////////////////
+            //(string name, int age) anketa;
 
-            Console.Write("Введите имя: ");
-            anketa.name = Console.ReadLine();
-            Console.Write("Введите возраст с цифрами: ");
-            anketa.age = Convert.ToInt32(Console.ReadLine());
-
-            Console.WriteLine("Ваше имя: {0}", anketa.name);
-            Console.WriteLine("Ваш возраст: {0}", anketa.age);
-            ShowColor(anketa.name,anketa.age);
+            //Console.Write("Введите имя: ");
+            //anketa.name = Console.ReadLine();
+            //Console.Write("Введите возраст с цифрами: ");
+            //anketa.age = Convert.ToInt32(Console.ReadLine());
+            //Console.WriteLine("Ваше имя: {0}", anketa.name);
+            //Console.WriteLine("Ваш возраст: {0}", anketa.age);
+            //ShowColor(anketa.name, anketa.age);
             //Console.ReadKey();
-            //var array = GetArrayFromConsole();
-            //foreach (int num in GetArrayFromConsole())
-            //{
-            //    Console.Write(num + " ");
-            //}
+            //int[] array = GetArrayFromConsole();
+
+            foreach (int num in SortArray(GetArrayFromConsole()))
+            {
+                Console.Write(num + " ");
+            }
+
             Console.ReadKey();
         }
-        static string ShowColor(string Name,int age)
+        static string ShowColor(string Name, int age)
         {
-            Console.WriteLine("{0} {1} год\n Напишите свой любимый цвет на английском с маленькой буквы", Name,age);
+            Console.WriteLine("{0} {1} год\n Напишите свой любимый цвет на английском с маленькой буквы", Name, age);
             var color = Console.ReadLine();
             switch (color)
             {
@@ -94,20 +96,25 @@ namespace Methods
                 Console.WriteLine("Введите элемент массива номер {0}: ", i + 1);
                 result[i] = int.Parse(Console.ReadLine());
             }
-            int c = 0;
-            for (int i = 0; i < result.Length; i++)
+            return result;
+        }
+        static int[] SortArray(int[] Result)
+        {
+            int c;
+            for (int i = 0; i < Result.Length; i++)
             {
-                for (int k = 0; k > result.Length; k++)
+                for (int k = 0; k < Result.Length; k++)
                 {
-                    if (result[i] > result[k])
+                    if (Result[i] < Result[k])
                     {
-                        c = result[k];
-                        result[k] = result[i];
-                        result[i] = c;
+                        c = Result[k];
+                        Result[k] = Result[i];
+                        Result[i] = c;
                     }
                 }
             }
-            return result;
+            return Result;
         }
     }
 }
+
