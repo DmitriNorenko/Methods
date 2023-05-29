@@ -25,14 +25,19 @@ namespace Methods
             //    Console.WriteLine("Ваши любимые блюда: " + dishes);
             //}
             ///////////////////////////
-            string[] favcolors = new string[3];
-            for (int i = 0; i < favcolors.Length; i++)
+            //string[] favcolors = new string[3];
+            //for (int i = 0; i < favcolors.Length; i++)
+            //{
+            //    favcolors[i] = ShowColor();
+            //}
+            //foreach (string favcolor in favcolors)
+            //{
+            //    Console.WriteLine(favcolor);
+            //}
+            var array = GetArrayFromConsole();
+            foreach (int num in GetArrayFromConsole())
             {
-                favcolors[i] = ShowColor();
-            }
-            foreach (string favcolor in favcolors)
-            {
-                Console.WriteLine(favcolor);
+                Console.Write(num + " ");
             }
             Console.ReadKey();
         }
@@ -69,6 +74,29 @@ namespace Methods
                     break;
             }
             return color;
+        }
+        static int[] GetArrayFromConsole()
+        {
+            var result = new int[5];
+            for (int i = 0; i < result.Length; i++)
+            {
+                Console.WriteLine("Введите элемент массива номер {0}: ", i + 1);
+                result[i] = int.Parse(Console.ReadLine());
+            }
+            int c = 0;
+            for (int i = 0; i < result.Length; i++)
+            {
+                for (int k = 0; k > result.Length; k++)
+                {
+                    if (result[i] > result[k])
+                    {
+                        c = result[k];
+                        result[k] = result[i];
+                        result[i] = c;
+                    }
+                }
+            }
+            return result;
         }
     }
 }
