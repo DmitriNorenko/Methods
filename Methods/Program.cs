@@ -34,16 +34,27 @@ namespace Methods
             //{
             //    Console.WriteLine(favcolor);
             //}
-            var array = GetArrayFromConsole();
-            foreach (int num in GetArrayFromConsole())
-            {
-                Console.Write(num + " ");
-            }
+            (string name, int age) anketa;
+
+            Console.Write("Введите имя: ");
+            anketa.name = Console.ReadLine();
+            Console.Write("Введите возраст с цифрами: ");
+            anketa.age = Convert.ToInt32(Console.ReadLine());
+
+            Console.WriteLine("Ваше имя: {0}", anketa.name);
+            Console.WriteLine("Ваш возраст: {0}", anketa.age);
+            ShowColor(anketa.name);
+            //Console.ReadKey();
+            //var array = GetArrayFromConsole();
+            //foreach (int num in GetArrayFromConsole())
+            //{
+            //    Console.Write(num + " ");
+            //}
             Console.ReadKey();
         }
-        static string ShowColor()
+        static string ShowColor(string Name)
         {
-            Console.WriteLine("Напишите свой любимый цвет на английском с маленькой буквы");
+            Console.WriteLine("{0},Напишите свой любимый цвет на английском с маленькой буквы", Name);
             var color = Console.ReadLine();
             switch (color)
             {
