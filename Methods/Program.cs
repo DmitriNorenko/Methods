@@ -43,7 +43,7 @@ namespace Methods
 
             Console.WriteLine("Ваше имя: {0}", anketa.name);
             Console.WriteLine("Ваш возраст: {0}", anketa.age);
-            ShowColor(anketa.name);
+            ShowColor(anketa.name,anketa.age);
             //Console.ReadKey();
             //var array = GetArrayFromConsole();
             //foreach (int num in GetArrayFromConsole())
@@ -52,9 +52,9 @@ namespace Methods
             //}
             Console.ReadKey();
         }
-        static string ShowColor(string Name)
+        static string ShowColor(string Name,int age)
         {
-            Console.WriteLine("{0},Напишите свой любимый цвет на английском с маленькой буквы", Name);
+            Console.WriteLine("{0} {1} год\n Напишите свой любимый цвет на английском с маленькой буквы", Name,age);
             var color = Console.ReadLine();
             switch (color)
             {
