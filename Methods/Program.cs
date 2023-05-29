@@ -10,21 +10,65 @@ namespace Methods
     {
         static void Main(string[] args)
         {
-            (string Name, string[] Dishes) User;
-            Console.WriteLine("Введите имя: ");
-            User.Name = Console.ReadLine();
-            User.Dishes = new string[5];
-            for (int i = 0; i < User.Dishes.Length; i++)
+            //(string Name, string[] Dishes) User;
+            //Console.WriteLine("Введите имя: ");
+            //User.Name = Console.ReadLine();
+            //User.Dishes = new string[5];
+            //for (int i = 0; i < User.Dishes.Length; i++)
+            //{
+            //    Console.WriteLine($"Введите {i + 1} любимое блюдо: ");
+            //    User.Dishes[i] = Console.ReadLine();
+            //}
+            //Console.WriteLine("Вас зовут: {0}", User.Name);
+            //foreach (var dishes in User.Dishes)
+            //{
+            //    Console.WriteLine("Ваши любимые блюда: " + dishes);
+            //}
+            ///////////////////////////
+            string[] favcolors = new string[3];
+            for (int i = 0; i < favcolors.Length; i++)
             {
-                Console.WriteLine($"Введите {i + 1} любимое блюдо: ");
-                User.Dishes[i] = Console.ReadLine();
+                favcolors[i] = ShowColor();
             }
-            Console.WriteLine("Вас зовут: {0}", User.Name);
-            foreach (var dishes in User.Dishes)
+            foreach (string favcolor in favcolors)
             {
-                Console.WriteLine("Ваши любимые блюда: " + dishes);
+                Console.WriteLine(favcolor);
             }
             Console.ReadKey();
+        }
+        static string ShowColor()
+        {
+            Console.WriteLine("Напишите свой любимый цвет на английском с маленькой буквы");
+            var color = Console.ReadLine();
+            switch (color)
+            {
+                case "red":
+                    Console.BackgroundColor = ConsoleColor.Red;
+                    Console.ForegroundColor = ConsoleColor.Black;
+
+                    Console.WriteLine("Your color is red!");
+                    break;
+
+                case "green":
+                    Console.BackgroundColor = ConsoleColor.Green;
+                    Console.ForegroundColor = ConsoleColor.Black;
+
+                    Console.WriteLine("Your color is green!");
+                    break;
+                case "cyan":
+                    Console.BackgroundColor = ConsoleColor.Cyan;
+                    Console.ForegroundColor = ConsoleColor.Black;
+
+                    Console.WriteLine("Your color is cyan!");
+                    break;
+                default:
+                    Console.BackgroundColor = ConsoleColor.Yellow;
+                    Console.ForegroundColor = ConsoleColor.Red;
+
+                    Console.WriteLine("Your color is yellow!");
+                    break;
+            }
+            return color;
         }
     }
 }
