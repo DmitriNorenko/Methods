@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.Design.Serialization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -56,11 +57,16 @@ namespace Methods
             /////////////////////////
             //int num1 = 4, num2 = 4, num3 = 0, num4 = 4;
             //SumNumbers(out num1, ref num2, num3, num4);
-            Console.WriteLine("Введите строку: ");
-            string Str = Console.ReadLine();
-            Console.WriteLine("Сколько будет повторений: ");
-            int Deep = int.Parse(Console.ReadLine());
-            Echo(Str, Deep);
+            //////////////////////////////////////////////////
+            //Console.WriteLine("Введите строку: ");
+            //string Str = Console.ReadLine();
+            //Console.WriteLine("Сколько будет повторений: ");
+            //int Deep = int.Parse(Console.ReadLine());
+            //Echo(Str, Deep);
+            /////////////////
+            // Console.WriteLine(Factorial(20));
+            int a = 2;
+            Console.WriteLine(PowerUp(a, 3));
             Console.ReadKey();
         }
         static void ShowColor(int num)
@@ -185,6 +191,32 @@ namespace Methods
                 Echo(modif, deep - 1);
             }
 
+        }
+        static decimal Factorial(int x)
+        {
+            if (x == 0)
+            {
+                return 1;
+            }
+            else
+            {
+                return x * Factorial(x - 1);
+            }
+        }
+        private static int PowerUp(int N, byte pow)
+        {
+            if (pow == 0)
+            {
+                return 1;
+            }
+            if (pow == 1)
+            {
+                return N;
+            }
+            else
+            {
+                return N * PowerUp(N, --pow);
+            }
         }
     }
 }
