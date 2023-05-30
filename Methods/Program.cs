@@ -49,7 +49,7 @@ namespace Methods
             ////////////////////////////////////////////
             int age = int.Parse(Console.ReadLine());
             Console.WriteLine(age);
-            ChangeAge(age);
+            ChangeAge(ref age);
             Console.WriteLine(age);
             int[] sortedarray = GetArrayFromConsole(10);
             ShowArray(sortedarray,true);
@@ -128,7 +128,7 @@ namespace Methods
                 }
             return array;
         }
-        static void ChangeAge(int age)
+        static void ChangeAge( ref int age)
         {
             age = int.Parse(Console.ReadLine());
             Console.WriteLine(age);
