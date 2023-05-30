@@ -24,8 +24,6 @@ namespace Methods
             //{
             //    Console.WriteLine("Ваши любимые блюда: " + dishes);
             //}
-            ///////////////////////////
-
             ////////////////////////////////
             //(string name, int age) anketa;
 
@@ -51,11 +49,18 @@ namespace Methods
             //Console.WriteLine(age);
             //ChangeAge(ref age);
             //Console.WriteLine(age);
-            int num = 10;
-            int[] sortedarray = GetArrayFromConsole(ref num);
-            ShowArray(sortedarray, true);
+            /////////////////////////
+            //int num = 10;
+            //int[] sortedarray = GetArrayFromConsole(ref num);
+            //ShowArray(sortedarray, true);
+            /////////////////////////
             //int num1 = 4, num2 = 4, num3 = 0, num4 = 4;
             //SumNumbers(out num1, ref num2, num3, num4);
+            Console.WriteLine("Введите строку: ");
+            string Str = Console.ReadLine();
+            Console.WriteLine("Сколько будет повторений: ");
+            int Deep = int.Parse(Console.ReadLine());
+            Echo(Str, Deep);
             Console.ReadKey();
         }
         static string ShowColor(string Name, int age)
@@ -131,7 +136,7 @@ namespace Methods
             {
                 for (int k = 0; k < Result.Length; k++)
                 {
-                    if (Result[i] > Result[k])
+                    if (Result[i] < Result[k])
                     {
                         c = Result[k];
                         Result[k] = Result[i];
@@ -143,8 +148,8 @@ namespace Methods
         }
         static void ShowArray(int[] array, bool isSort = false)
         {
-            int[] sortedDesc=array;
-            int[] sortedAsc=array;
+            int[] sortedDesc = array;
+            int[] sortedAsc = array;
             if (isSort == true)
             {
                 SortArray(array, out sortedDesc, out sortedAsc);
@@ -170,6 +175,21 @@ namespace Methods
             num1 = 0;
 
             return num3;
+        }
+        static void Echo(string str, int deep)
+        {
+            var modif = str;
+            Console.WriteLine(".... " + modif);
+            if (modif.Length > 2)
+            {
+                modif = modif.Remove(0, 2);
+            }
+
+            if (deep > 1)
+            {
+                Echo(modif, deep - 1);
+            }
+
         }
     }
 }
