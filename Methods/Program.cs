@@ -47,13 +47,15 @@ namespace Methods
             //    Console.WriteLine(favcolor);
             //}
             ////////////////////////////////////////////
-            int age = int.Parse(Console.ReadLine());
-            Console.WriteLine(age);
-            ChangeAge(ref age);
-            Console.WriteLine(age);
+            //int age = int.Parse(Console.ReadLine());
+            //Console.WriteLine(age);
+            //ChangeAge(ref age);
+            //Console.WriteLine(age);
             int num = 10;
             int[] sortedarray = GetArrayFromConsole(ref num);
             ShowArray(sortedarray, true);
+            //int num1 = 4, num2 = 4, num3 = 0, num4 = 4;
+            //SumNumbers(out num1, ref num2, num3, num4);
             Console.ReadKey();
         }
         static string ShowColor(string Name, int age)
@@ -100,14 +102,19 @@ namespace Methods
             }
             return result;
         }
-        static int[] SortArray(int[] Result)
+        static void SortArray(int[] Result, out int[] sortedDesc, out int[] sortedAsc)
+        {
+            sortedAsc = SortArrayAsc(Result);
+            sortedDesc = SortArrayDesc(Result);
+        }
+        static int[] SortArrayAsc(int[] Result)
         {
             int c;
             for (int i = 0; i < Result.Length; i++)
             {
                 for (int k = 0; k < Result.Length; k++)
                 {
-                    if (Result[i] < Result[k])
+                    if (Result[i] > Result[k])
                     {
                         c = Result[k];
                         Result[k] = Result[i];
@@ -117,22 +124,52 @@ namespace Methods
             }
             return Result;
         }
-        static int[] ShowArray(int[] array, bool isSort = false)
+        static int[] SortArrayDesc(int[] Result)
         {
+            int c;
+            for (int i = 0; i < Result.Length; i++)
+            {
+                for (int k = 0; k < Result.Length; k++)
+                {
+                    if (Result[i] > Result[k])
+                    {
+                        c = Result[k];
+                        Result[k] = Result[i];
+                        Result[i] = c;
+                    }
+                }
+            }
+            return Result;
+        }
+        static void ShowArray(int[] array, bool isSort = false)
+        {
+            int[] sortedDesc=array;
+            int[] sortedAsc=array;
             if (isSort == true)
             {
-                SortArray(array);
+                SortArray(array, out sortedDesc, out sortedAsc);
             }
-            foreach (int num in array)
+            foreach (int num in sortedDesc)
             {
                 Console.Write(num + " ");
             }
-            return array;
+            Console.WriteLine();
+            foreach (int num in sortedAsc)
+            {
+                Console.Write(num + " ");
+            }
+
         }
         static void ChangeAge(ref int age)
         {
             age = int.Parse(Console.ReadLine());
             Console.WriteLine(age);
+        }
+        static int SumNumbers(out int num1, ref int num2, int num3, int num4)
+        {
+            num1 = 0;
+
+            return num3;
         }
     }
 }
