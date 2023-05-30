@@ -63,39 +63,33 @@ namespace Methods
             Echo(Str, Deep);
             Console.ReadKey();
         }
-        static string ShowColor(string Name, int age)
+        static void ShowColor(int num)
         {
-            Console.WriteLine("{0} {1} год\n Напишите свой любимый цвет на английском с маленькой буквы", Name, age);
-            var color = Console.ReadLine();
+            // Console.WriteLine("{0} {1} год\n Напишите свой любимый цвет на английском с маленькой буквы", Name, age);
+            var color = num;
             switch (color)
             {
-                case "red":
+                case 1:
                     Console.BackgroundColor = ConsoleColor.Red;
                     Console.ForegroundColor = ConsoleColor.Black;
 
-                    Console.WriteLine("Your color is red!");
                     break;
 
-                case "green":
+                case 2:
                     Console.BackgroundColor = ConsoleColor.Green;
                     Console.ForegroundColor = ConsoleColor.Black;
 
-                    Console.WriteLine("Your color is green!");
                     break;
-                case "cyan":
+                case 3:
                     Console.BackgroundColor = ConsoleColor.Cyan;
                     Console.ForegroundColor = ConsoleColor.Black;
 
-                    Console.WriteLine("Your color is cyan!");
                     break;
                 default:
                     Console.BackgroundColor = ConsoleColor.Yellow;
                     Console.ForegroundColor = ConsoleColor.Red;
-
-                    Console.WriteLine("Your color is yellow!");
                     break;
             }
-            return color;
         }
         static int[] GetArrayFromConsole(ref int num)
         {
@@ -179,6 +173,7 @@ namespace Methods
         static void Echo(string str, int deep)
         {
             var modif = str;
+            Console.BackgroundColor = (ConsoleColor)deep;
             Console.WriteLine(".... " + modif);
             if (modif.Length > 2)
             {
