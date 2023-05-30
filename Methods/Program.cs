@@ -46,6 +46,11 @@ namespace Methods
             //{
             //    Console.WriteLine(favcolor);
             //}
+            ////////////////////////////////////////////
+            int age = int.Parse(Console.ReadLine());
+            Console.WriteLine(age);
+            ChangeAge(age);
+            Console.WriteLine(age);
             int[] sortedarray = GetArrayFromConsole(10);
             ShowArray(sortedarray,true);
             Console.ReadKey();
@@ -122,6 +127,11 @@ namespace Methods
                     Console.Write(num + " ");
                 }
             return array;
+        }
+        static void ChangeAge(int age)
+        {
+            age = int.Parse(Console.ReadLine());
+            Console.WriteLine(age);
         }
     }
 }
