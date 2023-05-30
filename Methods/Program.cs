@@ -51,8 +51,9 @@ namespace Methods
             Console.WriteLine(age);
             ChangeAge(ref age);
             Console.WriteLine(age);
-            int[] sortedarray = GetArrayFromConsole(10);
-            ShowArray(sortedarray,true);
+            int num = 10;
+            int[] sortedarray = GetArrayFromConsole(ref num);
+            ShowArray(sortedarray, true);
             Console.ReadKey();
         }
         static string ShowColor(string Name, int age)
@@ -89,7 +90,7 @@ namespace Methods
             }
             return color;
         }
-        static int[] GetArrayFromConsole(int num = 5)
+        static int[] GetArrayFromConsole(ref int num)
         {
             var result = new int[num];
             for (int i = 0; i < result.Length; i++)
@@ -122,13 +123,13 @@ namespace Methods
             {
                 SortArray(array);
             }
-                foreach (int num in array)
-                {
-                    Console.Write(num + " ");
-                }
+            foreach (int num in array)
+            {
+                Console.Write(num + " ");
+            }
             return array;
         }
-        static void ChangeAge( ref int age)
+        static void ChangeAge(ref int age)
         {
             age = int.Parse(Console.ReadLine());
             Console.WriteLine(age);
